@@ -3,11 +3,11 @@ import { storeToRefs } from 'pinia'
 import { useAppStore } from './stores/app'
 
 const appStore = useAppStore()
-const { hydrating } = storeToRefs(appStore)
+const { isHydrating } = storeToRefs(appStore)
 </script>
 
 <template>
-  <div v-if="hydrating" class="fixed z-50">Loading</div>
-  <router-view v-else-if="!hydrating"></router-view>
+  <div v-if="isHydrating" class="fixed z-50">Loading</div>
+  <router-view v-else-if="!isHydrating"></router-view>
 </template>
 
